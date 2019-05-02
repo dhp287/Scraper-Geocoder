@@ -14,8 +14,8 @@ for index, row in data.iterrows():
     if row['Intersecting Street'] is not None and str(row['Intersecting Street']) != 'nan':
         s += str(row['Intersecting Street']) + ', '
     l = geocoder.google(s, key='YOUR_API_KEY')
-    data.at[0, 'latitude'] = l.latlng[0]
-    data.at[0, 'longitude'] = l.latlng[1]
+    data.at[index, 'latitude'] = l.latlng[0]
+    data.at[index, 'longitude'] = l.latlng[1]
 
 data.to_excel('output.xlsx', sheet_name='sheet1')
 
